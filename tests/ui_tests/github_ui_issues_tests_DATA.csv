@@ -1,0 +1,3 @@
+EXECUTE,BROWSER,URL
+1,chrome,https://github.com/kalinmarkov/test-repository
+0,firefox,https://github.com/kalinmarkov/test-repository
