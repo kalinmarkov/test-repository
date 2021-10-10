@@ -21,9 +21,6 @@ class GithubIssuesTest(unittest.TestCase):
         print(f'========= {self._testMethodName} =========')
 
         try:
-            owner = "kalinmarkov"
-            repo = "test-repository"
-
             url = f"https://api.github.com/repos/{owner}/{repo}/issues"
             headers = {
                 "accept": "application/vnd.github.v3+json"
