@@ -28,7 +28,7 @@ class GitHubUIIssueTests(unittest.TestCase):
             self.__class__.issues_list = self.issue_page.get_issues_list()
             assert len(self.issues_list) > 0, "#### ERROR: There are no issues for that repository!"
         except:
-            raise Exception("### Page content is not loaded")
+            configuration.driver_helper.handle_exception(self.driver, "Issues_verification_FAIL.png")
 
     def test_02_check_issues_assignee(self):
         print(f'========== {self._testMethodName} ==========')
@@ -44,7 +44,7 @@ class GitHubUIIssueTests(unittest.TestCase):
 
             assert owner == issue_assignee_name, "#### ERROR: Assignee doesn't match"
         except:
-            raise Exception("### Page content is not loaded")
+            configuration.driver_helper.handle_exception(self.driver, "Assignee_FAIL.png")
 
     def test_03_check_issue_sidebar_attributes(self):
         print(f'========== {self._testMethodName} ==========')

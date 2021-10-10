@@ -16,3 +16,7 @@ def get_driver_exe_path(browser_name):
     # FF driver is not added to the project
     if browser_name == "firefox":
         return os.path.join(directory, "drivers/gechodriver.exe")
+
+
+def handle_exception(driver, sreenshot_name):
+    driver.save_screenshot(f"Error_{sreenshot_name}")
