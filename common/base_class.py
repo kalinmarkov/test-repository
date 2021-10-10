@@ -2,6 +2,7 @@ from selenium.webdriver import ActionChains
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import random
 
 
 class BaseClass:
@@ -29,6 +30,10 @@ class BaseClass:
         action = ActionChains(self.driver).send_keys(Keys.ENTER)
         action.perform()
 
+    def send_keys(self, value, *selector):
+        send = self.find_element(*selector)
+        send.send_keys(value)
+
     def click_on_element(self, element_name, selector):
         try:
             self.wait.until(EC.element_to_be_clickable(selector)).click()
@@ -36,3 +41,8 @@ class BaseClass:
         except:
             print("## {} not clicked! ".format(element_name) + str(selector))
             raise
+
+    def click_on_random_element_from_list(self, data_list):
+        random_position = random.randint(0, len(data_list) - 1)
+        random_element = data_list[random_position]
+        random_element.click()
