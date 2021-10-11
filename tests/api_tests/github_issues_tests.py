@@ -56,7 +56,6 @@ class GithubIssuesTest(unittest.TestCase):
 
     def test_03_post_github_issue(self):
         print(f'========= {self._testMethodName} =========')
-
         url = f"https://api.github.com/repos/{owner}/{repo}/issues"
         headers = {
             "accept": "application/vnd.github.v3+json"
@@ -70,6 +69,9 @@ class GithubIssuesTest(unittest.TestCase):
 
         assert self.response.status_code == 201, f"#### ERROR: Response not OK -> {self.response.status_code}"
         print(f">> POST request for {url} return response 201 Created")
+
+    # TODO:
+    # PUT, PATCH, DELETE
 
     @classmethod
     def tearDown(cls) -> None:
